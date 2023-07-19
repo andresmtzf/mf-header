@@ -1,3 +1,15 @@
+import Header from './components/header/Header'
+
 export default function Root(props) {
-  return <section>{props.name} is mounted!</section>;
+  return (
+    <>
+      <section>
+        <Header
+          onCreateAccount={() => {}}
+          onLogin={() => {}}
+          onLogout={() => {}}
+          user={{ name: `${props.name} is mounted!` }}></Header>
+      </section>
+    </>
+  )
 }
