@@ -26,7 +26,7 @@ main {
   margin: var(--header-height) 0 0 0;
   padding: 0 1rem;
   font-size: 1rem;
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: "Nunito Sans", sans-serif;
   transition: 0.5s;
 }
 
@@ -110,7 +110,7 @@ main {
 }
 
 .active::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   top: 0;

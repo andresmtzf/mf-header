@@ -1,27 +1,31 @@
-import React, { ButtonHTMLAttributes } from 'react'
-import '../../assets/Button.css'
+import React, { ButtonHTMLAttributes } from "react";
+import "../../assets/Button.css";
 
 export interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
-  primary?: boolean
-  backgroundColor?: string | null
-  size?: string
-  label: string
+  primary?: boolean;
+  backgroundColor?: string | null;
+  size?: string;
+  label: string;
 }
 
 const Button: React.FC<Props> = ({
   primary = false,
   backgroundColor = null,
-  size = 'medium',
+  size = "medium",
   label,
   ...props
 }) => {
-  const mode = primary ? 'button--primary' : 'button--secondary'
+  const mode = primary ? "button--primary" : "button--secondary";
 
   return (
-    <button type='button' className={`button button--${size} ${mode}`} {...props}>
+    <button
+      type="button"
+      className={`button button--${size} ${mode}`}
+      {...props}
+    >
       {label}
     </button>
-  )
-}
+  );
+};
 
-export default Button
+export default Button;

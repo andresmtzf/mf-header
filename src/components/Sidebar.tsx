@@ -1,5 +1,23 @@
 import { useState } from 'react'
 import '../assets/Sidebar.css'
+import { Link } from '@reach/router'
+//import { links } from "../root.helper.js";
+
+export const links = [
+  {
+    name: 'Opc 1',
+    href: '/content',
+    icon: '',
+  },
+  {
+    name: 'Opc 2',
+    href: '/profile',
+  },
+  {
+    name: 'Opc 3',
+    href: '/opcion-tres',
+  },
+]
 
 export const Sidebar = ({ name }) => {
   const [show, setShow] = useState(false)
@@ -12,35 +30,46 @@ export const Sidebar = ({ name }) => {
         </div>
         {name}
       </header>
-
       <aside className={`sidebar ${show ? 'show' : null}`}>
         <nav className='nav'>
           <div>
-            <a href='#' className='nav-logo'>
+            <a className='nav-logo'>
               {/* <i className={`fas fa-home-alt nav-logo-icon`}></i> */}
               <span className='nav-logo-name'>Menú</span>
             </a>
 
             <div className='nav-list'>
-              <a href='#' className='nav-link active'>
-                {/* <i className='fas fa-tachometer-alt nav-link-icon'></i> */}
+              {links.map((link, index) => {
+                return (
+                  <Link
+                    key={link.href}
+                    to={link.href}
+                    className={`nav-link ${index === 0 ? 'active' : ''}`}>
+                    <span className='nav-link-name'>{link.name}</span>
+                  </Link>
+                )
+              })}
+            </div>
+            {/*             <div className='nav-list'>
+              <Link className='nav-link active'>
+                <i className='fas fa-tachometer-alt nav-link-icon'></i>
                 <span className='nav-link-name'>Opc 2</span>
-              </a>
-              <a href='#' className='nav-link'>
-                {/* <i className='fas fa-hotel nav-link-icon'></i> */}
+              </Link>
+              <Link className='nav-link'>
+                <i className='fas fa-hotel nav-link-icon'></i>
                 <span className='nav-link-name'>Opc 3</span>
-              </a>
-              <a href='#' className='nav-link'>
-                {/* <i className='fas fa-image nav-link-icon'></i> */}
+              </Link>
+              <Link className='nav-link'>
+                <i className='fas fa-image nav-link-icon'></i>
                 <span className='nav-link-name'>Opc 4</span>
-              </a>
-              <a href='#' className='nav-link'>
-                {/* <i className='fas fa-dollar-sign nav-link-icon'></i> */}
+              </Link>
+              <Link className='nav-link'>
+                <i className='fas fa-dollar-sign nav-link-icon'></i>
                 <span className='nav-link-name' style={{ marginLeft: 0 }}>
                   Opc 5
                 </span>
-              </a>
-            </div>
+              </Link>
+            </div> */}
           </div>
 
           <a className='nav-link'>
