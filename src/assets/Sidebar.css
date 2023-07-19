@@ -26,7 +26,7 @@ main {
   margin: var(--header-height) 0 0 0;
   padding: 0 1rem;
   font-size: 1rem;
-  font-family: "Nunito Sans", sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
   transition: 0.5s;
 }
 
@@ -74,7 +74,7 @@ main {
   display: grid;
   grid-template-columns: max-content max-content;
   column-gap: 2rem;
-  padding: 0.5rem 0 0.5rem 0.5rem;
+  padding: 0.5rem 0 0.5rem 1.5rem;
 }
 
 .nav-logo {
@@ -110,7 +110,7 @@ main {
 }
 
 .active::before {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   top: 0;
@@ -136,7 +136,7 @@ main {
 
   .header {
     height: calc(var(--header-height) + 1rem);
-    padding-left: calc(var(--nav-width) + 2rem);
+    padding-left: calc(var(--nav-width));
   }
 
   .sidebar {

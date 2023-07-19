@@ -7,34 +7,37 @@ export const links = [
   {
     name: 'Opc 1',
     href: '/content',
-    icon: '',
+    icon: 'fa-solid fa-shop',
   },
   {
     name: 'Opc 2',
     href: '/profile',
+    icon: 'fa-solid fa-shop',
   },
   {
     name: 'Opc 3',
     href: '/opcion-tres',
+    icon: 'fa-solid fa-shop',
   },
 ]
 
 export const Sidebar = ({ name }) => {
   const [show, setShow] = useState(false)
+  const [isActive, setIsActive] = useState(0)
 
   return (
     <main className={show ? 'space-toggle' : null}>
-      <header className={`header ${show ? 'space-toggle' : null}`} style={{ color: 'black' }}>
-        <div className='header-toggle' onClick={() => setShow(!show)}>
+      <header className={`header ${show ? 'space-toggle' : ''}`} style={{ color: 'black' }}>
+        {/* <div className='header-toggle' onClick={() => setShow(!show)}>
           <i className={`fas fa-bars ${show ? 'fa-solid fa-xmark' : null}`}></i>
-        </div>
+        </div> */}
         {name}
       </header>
       <aside className={`sidebar ${show ? 'show' : null}`}>
         <nav className='nav'>
           <div>
             <a className='nav-logo'>
-              {/* <i className={`fas fa-home-alt nav-logo-icon`}></i> */}
+              <i className={`fas fa-home-alt nav-logo-icon`}></i>
               <span className='nav-logo-name'>Menú</span>
             </a>
 
@@ -44,7 +47,11 @@ export const Sidebar = ({ name }) => {
                   <Link
                     key={link.href}
                     to={link.href}
-                    className={`nav-link ${index === 0 ? 'active' : ''}`}>
+                    className={`nav-link ${isActive === index ? 'active' : ''}`}
+                    onClick={() => {
+                      setIsActive(index)
+                    }}>
+                    <i className={`${link.icon} nav-link-icon`}></i>
                     <span className='nav-link-name'>{link.name}</span>
                   </Link>
                 )
@@ -72,10 +79,10 @@ export const Sidebar = ({ name }) => {
             </div> */}
           </div>
 
-          <a className='nav-link'>
-            {/* <i className='fas fa-sign-out nav-link-icon'></i> */}
+          {/* <a className='nav-link'>
+            <i className='fas fa-sign-out nav-link-icon'></i>
             <span className='nav-link-name'>Logout</span>
-          </a>
+          </a> */}
         </nav>
       </aside>
 
